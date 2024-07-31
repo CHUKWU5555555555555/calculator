@@ -1,6 +1,5 @@
 import java.awt.*;
-import java.awt.event.*;  
-/*********************************************/  
+import java.awt.event.*;    
   
 public class MyCalculator extends Frame  
 {  
@@ -92,7 +91,6 @@ setLayout(null);
 setSize(FRAME_WIDTH,FRAME_HEIGHT);  
 setVisible(true);  
 }  
-//////////////////////////////////  
 static String getFormattedText(double temp)  
 {  
 String resText=""+temp;  
@@ -100,20 +98,17 @@ if(resText.lastIndexOf(".0")>0)
     resText=resText.substring(0,resText.length()-2);  
 return resText;  
 }  
-////////////////////////////////////////  
 public static void main(String []args)  
 {  
 new MyCalculator("Calculator - JavaTpoint");  
 }  
 }  
   
-/*******************************************/  
   
 class MyDigitButton extends Button implements ActionListener  
 {  
 MyCalculator cl;  
   
-//////////////////////////////////////////  
 MyDigitButton(int x,int y, int width,int height,String cap, MyCalculator clc)  
 {  
 super(cap);  
@@ -122,13 +117,11 @@ this.cl=clc;
 this.cl.add(this);  
 addActionListener(this);  
 }  
-////////////////////////////////////////////////  
 static boolean isInString(String s, char ch)  
 {  
 for(int i=0; i<s.length();i++) if(s.charAt(i)==ch) return true;  
 return false;  
-}  
-/////////////////////////////////////////////////  
+}   
 public void actionPerformed(ActionEvent ev)  
 {  
 String tempText=((MyDigitButton)ev.getSource()).getLabel();  
@@ -156,7 +149,6 @@ else
 }//actionPerformed  
 }//class defination  
   
-/********************************************/  
   
 class MyOperatorButton extends Button implements ActionListener  
 {  
@@ -170,7 +162,6 @@ this.cl=clc;
 this.cl.add(this);  
 addActionListener(this);  
 }  
-///////////////////////  
 public void actionPerformed(ActionEvent ev)  
 {  
 String opText=((MyOperatorButton)ev.getSource()).getLabel();  
@@ -228,13 +219,12 @@ cl.displayLabel.setText(MyCalculator.getFormattedText(temp));
 }//actionPerformed  
 }//class  
   
-/****************************************/  
   
 class MyMemoryButton extends Button implements ActionListener  
 {  
 MyCalculator cl;  
   
-/////////////////////////////////  
+
 MyMemoryButton(int x,int y, int width,int height,String cap, MyCalculator clc)  
 {  
 super(cap);  
@@ -243,7 +233,6 @@ this.cl=clc;
 this.cl.add(this);  
 addActionListener(this);  
 }  
-////////////////////////////////////////////////  
 public void actionPerformed(ActionEvent ev)  
 {  
 char memop=((MyMemoryButton)ev.getSource()).getLabel().charAt(1);  
@@ -270,7 +259,6 @@ case '+':
 }//actionPerformed  
 }//class  
   
-/*****************************************/  
   
 class MySpecialButton extends Button implements ActionListener  
 {  
@@ -284,7 +272,6 @@ this.cl=clc;
 this.cl.add(this);  
 addActionListener(this);  
 }  
-//////////////////////  
 static String backSpace(String s)  
 {  
 String Res="";  
@@ -292,7 +279,6 @@ for(int i=0; i<s.length()-1; i++) Res+=s.charAt(i);
 return Res;  
 }  
   
-//////////////////////////////////////////////////////////  
 public void actionPerformed(ActionEvent ev)  
 {  
 String opText=((MySpecialButton)ev.getSource()).getLabel();  
@@ -318,7 +304,7 @@ cl.displayLabel.setText("0");cl.setClear=true;
 }//actionPerformed  
 }//class  
   
-/********************************************* 
+ 
 Features not implemented and few bugs 
  
 i)  No coding done for "+/-" button. 
@@ -328,6 +314,6 @@ iv)Some of the computation may lead to unexpected result
    due to the representation of Floating point numbers in computer 
    is an approximation to the given value that can be stored 
    physically in memory. 
-***********************************************/ 
+ 
 
 
